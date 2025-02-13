@@ -14,14 +14,12 @@ public class Schedule extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userID")
-    private User user;
+    private String userName;
     private String title;
     private String content;
 
-    public Schedule(User user, String title, String content) {
+    public Schedule(String userName, String title, String content) {
+        this.userName = userName;
         this.title = title;
         this.content = content;
     }
